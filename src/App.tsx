@@ -28,8 +28,8 @@ function App() {
     <Authenticator>
       {({ signOut, user }) => (
         <main>
-          <h1>My todos</h1>
-          <button onClick={createTodo}>+ new</button>
+          <h1>{user?.signInDetails?.loginId}'s todos</h1>
+                    <button onClick={createTodo}>+ new</button>
           <ul>
             {todos.map(todo => <li
               onClick={() => deleteTodo(todo.id)}
@@ -44,6 +44,7 @@ function App() {
               Review next step of this tutorial.
             </a>
           </div>
+          <button onClick={signOut}>Sign out</button>
         </main>
       )}
     </Authenticator>
